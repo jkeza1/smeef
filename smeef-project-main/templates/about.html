@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smeef - About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50 rounded-b-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-extrabold gradient-text">Smeef</a>
+            <div class="space-x-6 hidden md:flex">
+                <a href="/index" class="text-gray-700 hover:text-blue-600 transition font-medium">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 transition font-medium">About Us</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 transition font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-green-600 to-blue-500 text-white text-center py-40 fade-in rounded-b-xl">
+        <div class="container mx-auto px-6">
+            <h1 class="text-6xl font-extrabold mb-6 gradient-text">About Smeef</h1>
+            <p class="text-lg md:text-xl mb-10">Empowering single mothers to thrive through skills, opportunities, and community support.</p>
+            <a href="#about" class="bg-white text-green-600 px-8 py-3 rounded-full shadow-lg hover:bg-gray-100 hover:shadow-xl transition">Learn More</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white text-center fade-in">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-6 gradient-text">Our Mission</h2>
+            <p class="text-gray-700 text-lg mb-6">
+                Smeef is dedicated to empowering single mothers in Rwanda by providing skills training, entrepreneurial opportunities, and access to a supportive community. 
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                    <h3 class="font-bold text-xl mb-3">Empowerment</h3>
+                    <p class="text-gray-600">We equip single mothers with the tools and confidence needed to succeed.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                    <h3 class="font-bold text-xl mb-3">Skills Development</h3>
+                    <p class="text-gray-600">Through tailored training programs, mothers acquire valuable skills to enhance their livelihoods.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                    <h3 class="font-bold text-xl mb-3">Community</h3>
+                    <p class="text-gray-600">Building a network of mutual support and opportunities for collaboration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-100 text-center fade-in rounded-lg shadow-md mx-4 mt-8">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-6 gradient-text">Get in Touch</h2>
+            <p class="text-gray-600 mb-6">Support our mission or learn more about Smeef's impact in Rwanda.</p>
+            <form class="max-w-lg mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <input 
+                    type="text" 
+                    placeholder="Your Name" 
+                    class="w-full mb-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" 
+                    required>
+                <input 
+                    type="email" 
+                    placeholder="Your Email" 
+                    class="w-full mb-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" 
+                    required>
+                <textarea 
+                    placeholder="Your Message" 
+                    class="w-full mb-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" 
+                    required></textarea>
+                <button 
+                    type="submit" 
+                    class="bg-gradient-to-r from-green-500 to-blue-600 text-white px-8 py-3 rounded-full shadow-md hover:shadow-lg transition">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-gray-800 text-white text-center">
+        <p>&copy; 2024 Smeef. All rights reserved. Designed with ❤️ for empowerment.</p>
+    </footer>
+</body>
+</html>

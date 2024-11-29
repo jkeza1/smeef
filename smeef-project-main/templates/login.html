@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: linear-gradient(to bottom right, #4caf50, #81c784);
+      }
+    </style>
+  </head>
+  <body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="w-full max-w-sm p-6 bg-white rounded-lg shadow-md">
+      <h1 class="text-2xl font-bold text-gray-700 text-center mb-4">
+        Welcome to Smeef
+      </h1>
+      <form
+        action="./login.html"
+        method="POST"
+        id="login-form"
+        class="space-y-6"
+      >
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700"
+            >Email</label
+          >
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+            class="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
+          />
+        </div>
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700"
+            >Password</label
+          >
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+            class="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
+          />
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition"
+        >
+          Login
+        </button>
+      </form>
+      <p class="text-center text-sm text-gray-600 mt-2">
+        Don't have an account?
+        <a href="./register.html" class="text-green-500 hover:underline"
+          >Register</a
+        >
+      </p>
+    </div>
+    <script>
+      // Handle form submission
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault(); // Prevent default form submission
+
+          // Get form data
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          try {
+            // Send login request to the API
+            const response = await fetch("/login", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ email, password }),
+            });
+
+            // Log the full response to inspect status and headers
+            console.log("Login API response:");
+            console.log("Status:", response.status);
+            console.log("Status Text:", response.statusText);
+            console.log("URL:", response.url);
+            console.log("Redirected:", response.redirected);
+            console.log("Response Type:", response.type);
+            console.log("OK:", response.ok);
+
+            if (response.ok) {
+              // Handle successful login
+              const data = await response.json();
+              console.log("Received data:", data);
+
+              const redirectUrl = data.redirectUrl || "/";
+              console.log("Redirecting to:", redirectUrl);
+
+              window.location.href = redirectUrl;
+            } else {
+              // Handle login failure
+              const error = await response.text();
+              console.log("Login failed with status:", response.status);
+              alert(`Login failed: ${error}`);
+            }
+          } catch (error) {
+            console.error("Error during login:", error);
+            alert("An error occurred during login. Please try again.");
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SMEEF</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            color: #333;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar Navigation */
+        nav {
+            width: 250px;
+            background-color: #333;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav img {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            width: 100%;
+            text-align: left;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background-color: #ff851b;
+            border-radius: 5px;
+        }
+
+        /* Layout Structure */
+        .main-content {
+            display: flex;
+            width: 100%;
+            margin-left: 250px; /* Prevent content from being hidden by the sidebar */
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #ff851b;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .center-content {
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .course-info {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .course {
+            margin-bottom: 20px;
+        }
+
+        .status-bar {
+            margin-top: 10px;
+        }
+
+        .right-sidebar {
+            width: 250px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            overflow-y: auto;
+            max-height: calc(100vh - 80px); /* Adjust for header */
+            position: absolute;
+            right: 0;
+            top: 80px;
+        }
+
+        .right-sidebar h2 {
+            margin-bottom: 15px;
+            color: #ff851b;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        /* Grades Section */
+        #show-grades-btn {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        #show-grades-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .grades-feedback {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            display: none;
+        }
+
+        .grades-feedback h2 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .grade-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .details {
+            flex: 3;
+        }
+
+        .feedback {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .grade {
+            flex: 1;
+            text-align: right;
+            font-size: 1.5em;
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="motherdashboard.html">Dashboard</a></li>
+            <li><a href="mothercourse.html">My Courses</a></li>
+            <li><a href="motheropportunity.html">Opportunities</a></li>
+            <li><a href="motherprofile.html">Profile</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <header>
+            <h1>Dashboard</h1>
+        </header>
+
+        <div class="center-content">
+            <div class="course-info">
+                <h2>My Courses</h2>
+                <section>
+                    <article class="course">
+                        <h3>Entrepreneurship 101</h3>
+                        <p>Learn the fundamentals of starting and running a successful business. Topics include idea generation, business planning, and financial management.</p>
+                        <p><strong>Progress:</strong> 75%</p>
+                        <div class="status-bar">
+                            <div style="width: 75%; background-color: #2ecc71; height: 10px; border-radius: 5px;"></div>
+                        </div>
+                    </article>
+
+                    <article class="course">
+                        <h3>Tailoring Basics</h3>
+                        <p>Master the basics of tailoring, from fabric selection to sewing techniques. Create your first clothing piece by the end of the course.</p>
+                        <p><strong>Progress:</strong> 40%</p>
+                        <div class="status-bar">
+                            <div style="width: 40%; background-color: #f1c40f; height: 10px; border-radius: 5px;"></div>
+                        </div>
+                    </article>
+
+                    <article class="course">
+                        <h3>Business Strategy Course</h3>
+                        <p>Enhance your business acumen with strategic planning, market analysis, and growth strategies tailored to small businesses.</p>
+                        <p><strong>Progress:</strong> 90%</p>
+                        <div class="status-bar">
+                            <div style="width: 90%; background-color: #2ecc71; height: 10px; border-radius: 5px;"></div>
+                        </div>
+                    </article>
+
+                    <article class="course">
+                        <h3>Digital Marketing Essentials</h3>
+                        <p>Learn how to promote products and services online through social media, email marketing, and SEO strategies.</p>
+                        <p><strong>Progress:</strong> 50%</p>
+                        <div class="status-bar">
+                            <div style="width: 50%; background-color: #3498db; height: 10px; border-radius: 5px;"></div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+
+        <aside class="right-sidebar">
+            <section class="notifications">
+                <h2>What's Next: Notifications</h2>
+                <ul>
+                    <li>Complete assignment <span class="status pending">Pending</span></li>
+                </ul>
+            </section>
+
+            <button id="show-grades-btn">View Grades</button>
+            <section id="grades-feedback-section" class="grades-feedback">
+                <h2>Your Feedback and Grades</h2>
+                <div class="grade-item">
+                    <div class="details">
+                        <h3>Entrepreneurship 101</h3>
+                        <div class="feedback">Feedback: "Great effort! Improve budgeting accuracy in your next submission."</div>
+                    </div>
+                    <div class="grade">
+                        <span>A</span>
+                    </div>
+                </div>
+                <div class="grade-item">
+                    <div class="grade-item">
+                        <div class="details">
+                            <h3>Skills Training - Tailoring Basics</h3>
+                            <div class="feedback">Feedback: "Keep up the good work. Focus on project deadlines."</div>
+                        </div>
+                        <div class="grade">
+                            <span>B+</span>
+                        </div>
+                    </div>
+                    <div class="grade-item">
+                        <div class="details">
+                            <h3>Business Strategy Course</h3>
+                            <div class="feedback">Feedback: "Excellent! You've demonstrated a strong understanding of marketing strategies."</div>
+                        </div>
+                        <div class="grade">
+                            <span>A+</span>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </aside>
+    </div>
+
+    <script>
+        // JavaScript for toggling grades visibility
+        const gradesButton = document.getElementById("show-grades-btn");
+        const gradesSection = document.getElementById("grades-feedback-section");
+
+        gradesButton.addEventListener("click", () => {
+            // Toggle the visibility of the grades section
+            if (gradesSection.style.display === "none" || gradesSection.style.display === "") {
+                gradesSection.style.display = "block";
+            } else {
+                gradesSection.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

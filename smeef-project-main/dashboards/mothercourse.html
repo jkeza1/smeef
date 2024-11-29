@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses - SMEEF Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* General Reset and Font */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            min-height: 100vh;
+        }
+
+        main {
+            margin-left: 270px;
+            padding: 40px;
+            flex-grow: 1;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        header h2 {
+            font-size: 32px;
+            color: #ff851b;
+        }
+
+        /* Dropdown Button */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown button {
+            background-color: green;
+            color: white;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .dropdown button:hover {
+            background-color: rgba(0, 128, 0, 0.537);
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            z-index: 1;
+            width: 200px;
+            margin-top: 10px;
+        }
+        .dropdown-content a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            border-bottom: 1px solid #f1f1f1;
+            transition: background-color 0.3s ease;
+        }
+        .dropdown-content a:hover {
+            background-color: #f9f9f9;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+/* Main Content Area */
+.content {
+    width: calc(100% - 200px);  /* Adjusting the width to be larger */
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Notifications Section */
+.notifications {
+    background-color: #fffae6;
+    border: 1px solid #ffeb99;
+    padding: 20px;  /* Increased padding for a spacious feel */
+    margin-bottom: 30px;  /* Increased bottom margin */
+    border-radius: 5px;
+    color: #333;
+    max-width: 100%; /* Ensures the section takes up all available space */
+}
+
+.notification-item {
+    background-color: #ffeb99;
+    margin-bottom: 15px;  /* More space between items */
+    padding: 15px;  /* Increased padding for a cleaner look */
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centering content vertically */
+}
+
+.notification-item button {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;  /* Smaller text for buttons */
+}
+
+.notification-item button:hover {
+    color: rgba(0, 128, 0, 0.668);
+}
+
+/* Main Content Area */
+.content {
+    width: calc(100% - 150px);  /* Increasing the width to make the content area larger */
+    padding: 30px;  /* Increased padding for a more spacious feel */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;  /* Ensures the content area has a clean background */
+}
+
+/* Notifications Section */
+.notifications {
+    background-color: rgba(255, 255, 255, 0.503);
+    border: 1px solid green;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    color: #333;
+    max-width: 100%;
+}
+
+.notification-item {
+    background-color: rgba(0, 128, 0, 0.416);
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification-item button {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.notification-item button:hover {
+    color: green;
+}
+
+/* Cards Layout for Assignments and Other Details */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 48%;
+    padding: 25px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 20px;
+}
+
+.card p {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.card button {
+    background-color: green;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: green;
+}
+
+/* Adjusting layout for smaller screens (Responsive Design) */
+@media (max-width: 768px) {
+    .content {
+        width: 100%;  /* Full width on smaller screens */
+    }
+
+    .card-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            aside {
+                width: 200px;
+                padding: 20px 15px;
+            }
+            main {
+                margin-left: 220px;
+            }
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card {
+                width: 90%;
+            }
+        }
+         /* Courses and Assignments Styling */
+         .course-list {
+            margin-top: 100px;
+            margin-right: 50px;
+        }
+        .course-list h1{
+            color: green;
+        }
+
+        .course-item {
+            background-color: #eaf4ff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .course-item:hover {
+            background-color: #d1ecf1;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .progress-bar span {
+            display: block;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        /* Grade Badge */
+        .grade-badge {
+            background-color: #28a745;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .grade-badge.failed {
+            background-color: #dc3545;
+        }
+        .center-content {
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .course-info {
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .course-info h1{
+            color: green;
+            font-weight: bold;
+        }
+
+        .course {
+            margin-top: 20px;
+        }
+        .course h3{
+            font-weight: bold;
+        }
+
+        .status-bar {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <aside class="w-64 bg-gray-800 text-white h-screen fixed flex flex-col justify-between">
+        <div>
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-green-500">Smeef</h2>
+                <p class="text-sm text-gray-300">Empowering Single Mothers</p>
+            </div>
+            <nav class="mt-6">
+                <ul>
+                    <li class="p-4 hover:bg-gray-700">
+                        <a href="single-mother-dashboard.html" class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 3a1 1 0 00-1 1v4H5a1 1 0 100 2h4v4a1 1 0 002 0v-4h4a1 1 0 100-2h-4V4a1 1 0 00-1-1z" />
+                            </svg>
+                            <span class="ml-4">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="p-4 hover:bg-gray-700">
+                        <a href="mothercourse.html" class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6z" />
+                            </svg>
+                            <span class="ml-4">Courses</span>
+                        </a>
+                    </li>
+                    <li class="p-4 hover:bg-gray-700">
+                        <a href="motheropportunity.html" class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M4 3a1 1 0 00-1 1v12a1 1 0 001 1h4.586A2 2 0 0010 17.414L12.414 15H16a1 1 0 001-1V4a1 1 0 00-1-1H4z" />
+                            </svg>
+                            <span class="ml-4">Job Board</span>
+                        </a>
+                    </li>
+                    <li class="p-4 hover:bg-gray-700">
+                        <a href="../announcements" class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M18 8a6 6 0 01-12 0 6 6 0 1112 0zm-6 8a8 8 0 100-16 8 8 0 000 16z" />
+                            </svg>
+                            <span class="ml-4">Announcements</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Profile and Logout -->
+        <div class="mb-6">
+            <ul>
+                <li class="p-4 hover:bg-gray-700">
+                    <a href="../profile" class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 10a4 4 0 110-8 4 4 0 010 8zM2 18a6 6 0 0112 0H2z" />
+                        </svg>
+                        <span class="ml-4">Profile</span>
+                    </a>
+                </li>
+                <li class="p-4 hover:bg-gray-700">
+                    <button onclick="logout()" class="flex items-center w-full text-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H3" />
+                        </svg>
+                        <span class="ml-4">Log Out</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+
+    <!-- Main Content Area -->
+    <main>
+        <header>
+            <div class="dropdown">
+                <button>View Courses</button>
+            </div>
+        </header>
+        <div class="content">
+
+            <!-- Notifications Section -->
+            <div class="notifications" id="notifications-section">
+                <h3>Notifications</h3>
+                <div class="notification-item" id="new-course-notification">
+                    <span>New course on Business Management is available!</span>
+                    <button onclick="dismissNotification('new-course-notification')">Dismiss</button>
+                </div>
+                <div class="notification-item" id="assignment-due-notification">
+                    <span>Upcoming assignment due in 3 days!</span>
+                    <button onclick="dismissNotification('assignment-due-notification')">Dismiss</button>
+                </div>
+         
+            </div>
+        <!-- Assignments Section -->
+        <section id="assignments">
+            <h2>Assignments</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Basics of Entrepreneurship</h3>
+                    <p>Assignment: Business Plan Draft</p>
+                    <p>Due: November 30, 2024</p>
+                    <button onclick="submitAssignment('Business Plan Draft')">Submit Assignment</button>
+                </div>
+                <div class="card">
+                    <h3>Financial Literacy 101</h3>
+                    <p>Assignment: Budget Plan Analysis</p>
+                    <p>Due: November 30, 2024</p>
+                    <button onclick="submitAssignment('Business Plan Draft')">Submit Assignment</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="center-content">
+            <div class="course-info">
+                <h1>My Courses</h1>
+                <section>
+                    <article class="course">
+                        <h3>Entrepreneurship 101</h3>
+                        <p>Learn the fundamentals of starting and running a successful business. Topics include idea generation, business planning, and financial management.</p>
+                        <p><strong>Progress:</strong> 75%</p>
+                        <div class="status-bar">
+                            <div style="width: 75%; background-color: #2ecc71; height: 10px; border-radius: 5px;"></div>
+                        </div>
+                    </article>
+
+                    <article class="course">
+                        <h3>Tailoring Basics</h3>
+                        <p>Master the basics of tailoring, from fabric selection to sewing techniques. Create your first clothing piece by the end of the course.</p>
+                        <p><strong>Progress:</strong> 40%</p>
+                        <div class="status-bar">
+                            <div style="width: 40%; background-color: #f1c40f; height: 10px; border-radius: 5px;"></div>
+                        </div>
+                    </article>
+
+                    <article class="course">
+                        <h3>Business Strategy Course</h3>
+                        <p>Enhance your business acumen with strategic planning, market analysis, and growth strategies tailored to small businesses.</p>
+                        <p><strong>Progress:</strong> 90%</p>
+                        <div class="status-bar">
+                            <div style="width: 90%; background-color: #2ecc71; height: 10px; border-radius: 5px;"></div>
+                        </div>
+                    </article>
+
+                    <article class="course">
+                        <h3>Digital Marketing Essentials</h3>
+                        <p>Learn how to promote products and services online through social media, email marketing, and SEO strategies.</p>
+                        <p><strong>Progress:</strong> 50%</p>
+                        <div class="status-bar">
+                            <div style="width: 50%; background-color: #3498db; height: 10px; border-radius: 5px;"></div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+    </main>
+<!-- Ongoing Courses -->
+ 
+    <script>
+        // Logout Functionality
+        function logout() {
+            if (confirm("Are you sure you want to log out?")) {
+                sessionStorage.clear();
+                localStorage.clear();
+                alert("You have been logged out.");
+                window.location.href = "login.html";
+            }
+        }
+
+        // Submit Assignment Functionality
+        function submitAssignment(assignmentName) {
+            alert(`Submitting the assignment: ${assignmentName}`);
+        }
+         // Function to dismiss notifications
+         function dismissNotification(notificationId) {
+            document.getElementById(notificationId).style.display = 'none';
+        }
+
+        // Motivational Reminders and Progress Alerts
+        function sendMotivationalReminder() {
+            alert("You're doing great! Keep pushing towards your goals. Remember, small steps lead to big achievements!");
+        }
+
+        function sendProgressAlert(courseName, startDate) {
+            alert(`New course available: ${courseName}! It starts on ${startDate}. Don't miss out!`);
+        }
+
+        // Send reminder or alert
+        setTimeout(sendMotivationalReminder, 5000);  // Send a reminder after 5 seconds for demo
+        setTimeout(() => sendProgressAlert("Financial Literacy", "2024-12-15"), 10000);  // Send progress alert after 10 seconds
+    </script>
+
+</body>
+
+</html>

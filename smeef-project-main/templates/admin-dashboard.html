@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Smeef</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-800 text-white h-screen fixed md:relative flex flex-col justify-between hidden md:flex">
+            <div>
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-green-500">Smeef</h2>
+                    <p class="text-sm text-gray-300">Admin Dashboard</p>
+                </div>
+                <nav class="mt-6">
+                    <ul>
+                        <li class="p-4 hover:bg-gray-700">
+                            <a href="#" class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                </svg>
+                                <span class="ml-4">Dashboard</span>
+                            </a>
+                        </li>
+                            <li class="p-4 hover:bg-gray-700 {{ request.path == '/smeef-project/frontend/pages/manage-users.html' ? 'bg-gray-700' : '' }}">
+                                <a href="/smeef-project/frontend/pages/manage-users.html" class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m0 0h4m-4 0a4 4 0 100-8h4a4 4 0 100 8z" />
+                                    </svg>
+                                    <span class="ml-4">Manage Users</span>
+                                </a>
+                            </li>
+                        <li class="p-4 hover:bg-gray-700 {{ request.path == '/smeef-project/frontend/pages/manage-courses.html' ? 'bg-gray-700' : '' }}">
+                            <a href="/smeef-project/frontend/pages/manage-courses.html" class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 16l-4-4m0 0l-4 4m4-4v8" />
+                                </svg>
+                                <span class="ml-4">Manage Courses</span>
+                            </a>
+                        </li>
+                        <li class="p-4 hover:bg-gray-700">
+                            <li class="p-4 hover:bg-gray-700 {{ request.path == '/smeef-project/frontend/pages/Announcements.html' ? 'bg-gray-700' : '' }}">
+                                <a href="/smeef-project/frontend/pages/announcements.html" class="flex items-center">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3zm0 4c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3z" />
+                                </svg>
+                                <span class="ml-4">Announcements</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- Profile and Logout -->
+            <div class="mb-6">
+                <ul>
+                    <li class="p-4 hover:bg-gray-700">
+                        <a href="/smeef-project/frontennd/profile.html" class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 10a4 4 0 110-8 4 4 0 010 8zM2 18a6 6 0 0112 0H2z" />
+                            </svg>
+                            <span class="ml-4">Profile</span>
+                        </a>
+                    </li>
+                    <li class="p-4 hover:bg-gray-700">
+                        <button onclick="logout()" class="flex items-center w-full text-left">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H3" />
+                            </svg>
+                            <span class="ml-4">Log Out</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 ml-64 md:ml-0">
+            <header class="mb-6">
+                <h1 class="text-3xl font-bold text-gray-800">Welcome, Admin</h1>
+                <p class="text-gray-600">Manage users, courses, and platform updates.</p>
+            </header>
+        </main>
+    </div>
+<!-- Toggle Button -->
+<button id="sidebarToggle" class="p-4 md:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+</button>
+
+    <script>
+        function logout() {
+            alert('You have been logged out.');
+            window.location.href = '/login.html';
+        }
+
+    toggleButton.addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
+    });
+
+    </script>
+</body>
+</html>

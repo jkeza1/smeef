@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Board - Apply for Jobs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #f1f1f1, #ffffff);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-800 text-white h-screen fixed">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-green-500">Smeef</h2>
+                <p class="text-sm text-gray-300">Empowering Single Mothers</p>
+            </div>
+            <nav class="mt-6">
+                <ul>
+                    <li class="p-4 hover:bg-gray-700">
+                        <a href="#" class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 3a1 1 0 00-1 1v4H5a1 1 0 100 2h4v4a1 1 0 002 0v-4h4a1 1 0 100-2h-4V4a1 1 0 00-1-1z" />
+                            </svg>
+                            <span class="ml-4">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="p-4 hover:bg-gray-700">
+                        <a href="#" class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6z" />
+                            </svg>
+                            <span class="ml-4">Courses</span>
+                        </a>
+                    </li>
+                    <li class="p-4 hover:bg-gray-700">
+                        <a href="#" class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M4 3a1 1 0 00-1 1v12a1 1 0 001 1h4.586A2 2 0 0010 17.414L12.414 15H16a1 1 0 001-1V4a1 1 0 00-1-1H4z" />
+                            </svg>
+                            <span class="ml-4">Job Board</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="ml-64 p-8 w-full">
+            <header class="mb-6">
+                <h1 class="text-3xl font-bold text-gray-800">Job Board</h1>
+                <p class="text-gray-600">Search for and apply to jobs tailored for you.</p>
+            </header>
+
+            <!-- Categories -->
+            <div class="mb-4">
+                <select 
+                    id="jobCategory" 
+                    class="p-2 border rounded-md w-1/3 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                >
+                    <option value="">All Categories</option>
+                    <option value="IT">IT</option>
+                    <option value="Education">Education</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Retail">Retail</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <!-- Job Listings in Grid -->
+            <div id="jobListings" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-4 bg-white rounded-lg shadow-md" data-category="IT">
+                    <h2 class="text-lg font-bold text-gray-800">Web Developer</h2>
+                    <p class="text-gray-500">Remote | Full-time</p>
+                    <button 
+                        onclick="openModal('Web Developer')" 
+                        class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition w-full"
+                    >
+                        Apply
+                    </button>
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md" data-category="Education">
+                    <h2 class="text-lg font-bold text-gray-800">Kindergarten Teacher</h2>
+                    <p class="text-gray-500">On-site | Part-time</p>
+                    <button 
+                        onclick="openModal('Kindergarten Teacher')" 
+                        class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition w-full"
+                    >
+                        Apply
+                    </button>
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md" data-category="Healthcare">
+                    <h2 class="text-lg font-bold text-gray-800">Nurse Assistant</h2>
+                    <p class="text-gray-500">On-site | Full-time</p>
+                    <button 
+                        onclick="openModal('Nurse Assistant')" 
+                        class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition w-full"
+                    >
+                        Apply
+                    </button>
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md" data-category="Retail">
+                    <h2 class="text-lg font-bold text-gray-800">Cashier</h2>
+                    <p class="text-gray-500">On-site | Full-time</p>
+                    <button 
+                        onclick="openModal('Cashier')" 
+                        class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition w-full"
+                    >
+                        Apply
+                    </button>
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md" data-category="Other">
+                    <h2 class="text-lg font-bold text-gray-800">Carpenter</h2>
+                    <p class="text-gray-500">On-site | Part-time</p>
+                    <button 
+                        onclick="openModal('Carpenter')" 
+                        class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition w-full"
+                    >
+                        Apply
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="jobModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 id="jobTitle" class="text-2xl font-bold text-gray-800 mb-4">Job Title</h2>
+            <form>
+                <input type="file" required class="mb-4">
+                <textarea placeholder="Why are you suitable for this role?" required class="p-2 border rounded-md w-full"></textarea>
+                <button type="submit" class="w-full mt-4 bg-green-500 text-white px-4 py-2 rounded">Submit Application</button>
+            </form>
+            <button onclick="closeModal()" class="mt-4 text-green-500 underline">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const categoryDropdown = document.getElementById('jobCategory');
+        const jobListings = document.querySelectorAll('#jobListings > div');
+
+        categoryDropdown.addEventListener('change', (e) => {
+            const category = e.target.value.toLowerCase();
+            jobListings.forEach(job => {
+                if (category === "" || job.dataset.category.toLowerCase() === category) {
+                    job.style.display = 'block';
+                } else {
+                    job.style.display = 'none';
+                }
+            });
+        });
+
+        function openModal(jobTitle) {
+            document.getElementById('jobModal').classList.remove('hidden');
+            document.getElementById('jobTitle').textContent = jobTitle;
+        }
+
+        function closeModal() {
+            document.getElementById('jobModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

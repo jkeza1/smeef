@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Smeef</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-800 text-white h-screen fixed">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-green-500">Smeef</h2>
+                <p class="text-sm text-gray-300">Empowering Single Mothers</p>
+            </div>
+            <nav class="mt-6">
+                <ul>
+                    <li class="p-4 hover:bg-gray-700">
+                        <a href="dashboard.html" class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 3a1 1 0 00-1 1v4H5a1 1 0 100 2h4v4a1 1 0 002 0v-4h4a1 1 0 100-2h-4V4a1 1 0 00-1-1z" />
+                            </svg>
+                            <span class="ml-4">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="p-4 bg-gray-700">
+                        <a href="courses.html" class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6z" />
+                            </svg>
+                            <span class="ml-4">Courses</span>
+                        </a>
+                    </li>
+                    <li class="p-4 hover:bg-gray-700">
+                        <a href="job-board.html" class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M4 3a1 1 0 00-1 1v12a1 1 0 001 1h4.586A2 2 0 0010 17.414L12.414 15H16a1 1 0 001-1V4a1 1 0 00-1-1H4z" />
+                            </svg>
+                            <span class="ml-4">Job Board</span>
+                        </a>
+                    </li>
+                    <li class="p-4 hover:bg-gray-700">
+                        <a href="announcements.html" class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M18 8a6 6 0 01-12 0 6 6 0 1112 0zm-6 8a8 8 0 100-16 8 8 0 000 16z" />
+                            </svg>
+                            <span class="ml-4">Announcements</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="ml-64 p-8 w-full">
+            <header class="mb-6">
+                <h1 class="text-3xl font-bold text-gray-800">My Courses</h1>
+                <p class="text-gray-600">Track your progress and explore new courses to enroll in.</p>
+            </header>
+
+            <!-- Enrolled Courses Section -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Enrolled Courses</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Enrolled Course Card -->
+                    <div class="p-4 bg-white rounded-lg shadow hover:shadow-lg">
+                        <h2 class="text-xl font-bold text-gray-800">Leadership Skills</h2>
+                        <p class="text-gray-600 mb-4">Develop skills to lead effectively.</p>
+                        <div class="relative w-full h-4 bg-gray-200 rounded-full overflow-hidden mb-2">
+                            <div class="absolute top-0 left-0 h-4 bg-green-500" style="width: 70%;"></div>
+                        </div>
+                        <p class="text-sm text-gray-600">Progress: 70%</p>
+                        <a href="course-details.html" class="mt-4 inline-block text-green-500 hover:underline text-sm">View Feedback</a>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow hover:shadow-lg">
+                        <h2 class="text-xl font-bold text-gray-800">Financial Literacy</h2>
+                        <p class="text-gray-600 mb-4">Manage your money effectively.</p>
+                        <div class="relative w-full h-4 bg-gray-200 rounded-full overflow-hidden mb-2">
+                            <div class="absolute top-0 left-0 h-4 bg-green-500" style="width: 50%;"></div>
+                        </div>
+                        <p class="text-sm text-gray-600">Progress: 50%</p>
+                        <a href="course-details.html" class="mt-4 inline-block text-green-500 hover:underline text-sm">View Feedback</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Available Courses Section -->
+            <section>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Available Courses</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Available Course Card -->
+                    <div class="p-4 bg-white rounded-lg shadow hover:shadow-lg">
+                        <h2 class="text-xl font-bold text-gray-800">Entrepreneurship 101</h2>
+                        <p class="text-gray-600 mb-4">Learn how to start and grow a business.</p>
+                        <button class="w-full bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition">Enroll</button>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow hover:shadow-lg">
+                        <h2 class="text-xl font-bold text-gray-800">Time Management</h2>
+                        <p class="text-gray-600 mb-4">Master the art of managing your time.</p>
+                        <button class="w-full bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition">Enroll</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

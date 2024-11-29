@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smeef Marketplace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50 rounded-b-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-extrabold gradient-text">Smeef</a>
+            <div class="space-x-6 hidden md:flex">
+                <a href="/index" class="text-gray-700 hover:text-blue-600 transition font-medium">Home</a>
+                <a href="#marketplace" class="text-gray-700 hover:text-blue-600 transition font-medium">Marketplace</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 transition font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-green-500 text-white text-center py-40 fade-in rounded-b-xl" id="marketplace">
+        <div class="container mx-auto px-6">
+            <h1 class="text-6xl font-extrabold mb-6 gradient-text">Smeef Marketplace</h1>
+            <p class="text-lg md:text-xl mb-10">Empowering single mothers to sell their unique products and services.</p>
+            <a href="#products" class="bg-white text-blue-600 px-8 py-3 rounded-full shadow-lg hover:bg-gray-100 hover:shadow-xl transition">Explore Products</a>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section id="products" class="py-8 bg-white text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-6 gradient-text">Our Categories</h2>
+            <div class="flex justify-center mb-6">
+                <select id="categoryFilter" class="p-2 border rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500">
+                    <option value="">All Categories</option>
+                    <option value="Home Goods">Home Goods</option>
+                    <option value="Food">Food</option>
+                    <option value="Services">Services</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Listings -->
+    <section class="py-8 bg-gray-100 text-center">
+        <div class="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="productList">
+            <!-- Example Product Cards dynamically added -->
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="py-16 bg-gray-100 text-center fade-in rounded-lg shadow-md mx-4 mt-8">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-6 gradient-text">Contact Us</h2>
+            <p class="text-gray-600 mb-6">Support our mission or get in touch to learn more about Smeef.</p>
+            <form class="max-w-lg mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <input 
+                    type="text" 
+                    placeholder="Your Name" 
+                    class="w-full mb-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" 
+                    required>
+                <input 
+                    type="email" 
+                    placeholder="Your Email" 
+                    class="w-full mb-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" 
+                    required>
+                <textarea 
+                    placeholder="Your Message" 
+                    class="w-full mb-4 px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500" 
+                    required></textarea>
+                <button 
+                    type="submit" 
+                    class="bg-gradient-to-r from-green-500 to-blue-600 text-white px-8 py-3 rounded-full shadow-md hover:shadow-lg transition">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-gray-800 text-white text-center">
+        <p>&copy; 2024 Smeef. All rights reserved. Designed with ❤️ for empowerment.</p>
+    </footer>
+
+    <script>
+        // Placeholder Products
+        const products = [
+            { id: 1, title: "Handmade Crafts", price: 15, category: "Home Goods", image: "images/crafts.jpg" },
+            { id: 2, title: "Baked Goods", price: 20, category: "Food", image: "images/bakes.jpg" },
+            { id: 3, title: "Gardening Services", price: 30, category: "Services", image: "images/gardener.jpg" },
+            { id: 4, title: "Knitted Blankets", price: 25, category: "Home Goods", image: "images/blankets.jpg" },
+        
+        ];
+
+        const productList = document.getElementById("productList");
+        const categoryFilter = document.getElementById("categoryFilter");
+
+        // Render Products
+        const renderProducts = (category = "") => {
+            productList.innerHTML = "";
+            const filteredProducts = category
+                ? products.filter(product => product.category === category)
+                : products;
+
+            filteredProducts.forEach(product => {
+                const productCard = `
+                    <div class="bg-white rounded-lg shadow-lg p-6 fade-in">
+                        <img src="${product.image}" alt="${product.title}" class="rounded-t-lg w-full h-40 object-cover mb-4">
+                        <h3 class="font-bold text-xl text-green-600 mb-2">${product.title}</h3>
+                        <p class="text-gray-600">$${product.price}</p>
+                        <button class="bg-gradient-to-r from-green-500 to-blue-600 text-white px-6 py-2 rounded-full mt-4 hover:bg-green-700 transition">Buy Now</button>
+                    </div>`;
+                productList.innerHTML += productCard;
+            });
+        };
+
+        // Initial Load
+        renderProducts();
+
+        // Filter Products by Category
+        categoryFilter.addEventListener("change", (e) => {
+            renderProducts(e.target.value);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smeef - Empowering Single Mothers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #4ADE80, #2563EB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .shadow-lg-hover:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50 rounded-b-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-extrabold gradient-text">Smeef</a>
+            <div class="space-x-6 hidden md:flex">
+                <a href="./about.html" class="text-gray-700 hover:text-blue-600 transition font-medium">About</a>
+                <a href="#features" class="text-gray-700 hover:text-blue-600 transition font-medium">Features</a>
+                <a href="#impact" class="text-gray-700 hover:text-blue-600 transition font-medium">Impact</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 transition font-medium">Contact</a>
+                <a href="./register.html" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Register</a>
+                <a href="./login.html" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Login</a>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-green-500 text-white text-center py-40 fade-in rounded-b-xl" id="hero">
+        <div class="container mx-auto px-6">
+            <h1 class="text-6xl font-extrabold mb-6 gradient-text">Empowering Single Mothers</h1>
+            <p class="text-lg md:text-xl mb-10">Join the movement to transform lives with skills, jobs, and opportunities.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#features" class="bg-white text-blue-600 px-6 py-3 rounded-full shadow-lg hover:bg-gray-100 hover:shadow-xl transition">Learn More</a>
+                <a href="#contact" class="bg-green-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-green-700 hover:shadow-xl transition">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white text-center fade-in rounded-lg shadow-md mx-4 mt-8">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-6 gradient-text">About Smeef</h2>
+            <p class="text-gray-600 leading-relaxed max-w-2xl mx-auto">Smeef is a revolutionary platform aimed at empowering single mothers. Our mission is to provide accessible skills training, create job opportunities, and support entrepreneurship. Through Smeef, single mothers can build brighter futures and thrive in their communities.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-gray-100 fade-in">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Key Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center shadow-lg-hover">
+                    <img src="https://via.placeholder.com/100" alt="Training" class="mx-auto mb-6">
+                    <h3 class="font-bold text-xl text-green-600 mb-2">Skills Training</h3>
+                    <p class="text-gray-600">Access tailored courses to improve your skills and unlock new opportunities.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center shadow-lg-hover">
+                    <img src="https://via.placeholder.com/100" alt="Jobs" class="mx-auto mb-6">
+                    <h3 class="font-bold text-xl text-green-600 mb-2">Job Creation</h3>
+                    <p class="text-gray-600">Discover job opportunities tailored for single mothers.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center shadow-lg-hover">
+                    <img src="https://via.placeholder.com/100" alt="Entrepreneurship" class="mx-auto mb-6">
+                    <h3 class="font-bold text-xl text-green-600 mb-2">Entrepreneurship</h3>
+                    <p class="text-gray-600">Get tools and guidance to start your own business and succeed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="py-16 bg-white text-center fade-in rounded-lg shadow-md mx-4 mt-8">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-6 gradient-text">Our Impact</h2>
+            <p class="text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8">Since its inception, Smeef has positively influenced lives by providing essential tools and opportunities to single mothers worldwide. Join us and help create a legacy of empowerment.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 bg-gray-100 rounded-xl shadow-md hover:shadow-lg transition">
+                    <h3 id="counter1" class="text-2xl font-bold text-green-600">0</h3>
+                    <p class="text-gray-600">Mothers Trained</p>
+                </div>
+                <div class="p-8 bg-gray-100 rounded-xl shadow-md hover:shadow-lg transition">
+                    <h3 id="counter2" class="text-2xl font-bold text-green-600">0+</h3>
+                    <p class="text-gray-600">Jobs Created</p>
+                </div>
+                <div class="p-8 bg-gray-100 rounded-xl shadow-md hover:shadow-lg transition">
+                    <h3 id="counter3" class="text-2xl font-bold text-green-600">0+</h3>
+                    <p class="text-gray-600">Businesses Started</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-100 text-center fade-in rounded-lg shadow-md mx-4 mt-8">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-6 gradient-text">Contact Us</h2>
+            <p class="text-gray-600 mb-6">Have questions or want to get involved? Reach out to us!</p>
+            <form class="max-w-lg mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <input type="text" placeholder="Your Name" class="w-full mb-4 px-4 py-2 border rounded-md shadow-sm">
+                <input type="email" placeholder="Your Email" class="w-full mb-4 px-4 py-2 border rounded-md shadow-sm">
+                <textarea placeholder="Your Message" class="w-full mb-4 px-4 py-2 border rounded-md shadow-sm"></textarea>
+                <button type="submit" class="bg-gradient-to-r from-green-500 to-blue-600 text-white px-8 py-3 rounded-full shadow-md hover:shadow-lg transition">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-gray-800 text-white text-center rounded-t-lg">
+        <p>&copy; 2024 Smeef. All rights reserved. Designed with ❤️ for empowerment.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const counters = [
+                { id: "counter1", target: 100 }, // Target for "Mothers Trained"
+                { id: "counter2", target: 50 },  // Target for "Jobs Created"
+                { id: "counter3", target: 30 }   // Target for "Businesses Started"
+            ];
+    
+            counters.forEach(({ id, target }) => {
+                const counterElement = document.getElementById(id);
+                let count = 0;
+                const duration = 2000; // Animation duration in milliseconds
+                const interval = Math.floor(duration / target);
+    
+                const counter = setInterval(() => {
+                    count++;
+                    counterElement.textContent = count + "+"; // Append the "+" sign
+                    if (count >= target) {
+                        clearInterval(counter); // Stop the interval when target is reached
+                    }
+                }, interval);
+            });
+        });
+    </script>
+    
+</body>
+</html>
